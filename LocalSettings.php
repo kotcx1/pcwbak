@@ -19,7 +19,8 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 ## Uncomment this to disable output compression
 # $wgDisableOutputCompression = true;
 
-$wgSitename = "배재위키(임시)";
+$wgSitename = "배재위키 백업 프로젝트";
+$wgMetaNamespace = "배재위키_백업_프로젝트";
 
 ## The URL base path to the directory containing the wiki;
 ## defaults for all runtime URL paths are based off of this.
@@ -53,7 +54,7 @@ $wgEmailAuthentication = true;
 ## Database settings
 $wgDBtype = "mysql";
 $wgDBserver = "127.0.0.1";
-$wgDBname = "pcw";
+$wgDBname = "pcwiki";
 $wgDBuser = "pcadmin";
 $wgDBpassword = "18851885";
 
@@ -68,7 +69,7 @@ $wgDBTableOptions = "ENGINE=InnoDB, DEFAULT CHARSET=binary";
 $wgSharedTables[] = "actor";
 
 ## Shared memory settings
-$wgMainCacheType = CACHE_NONE;
+$wgMainCacheType = CACHE_ACCEL;
 $wgMemCachedServers = [];
 
 ## To enable image uploads, make sure the 'images' directory
@@ -101,25 +102,28 @@ $wgShellLocale = "C.UTF-8";
 # Site language code, should be one of the list in ./languages/data/Names.php
 $wgLanguageCode = "ko";
 
-$wgSecretKey = "c7f367b30b759c83fe0068a89929fa0566def82e1030aa1c1b7ba3d3eeb94fbf";
+$wgSecretKey = "95f015982cad1af5bb4103a711674ed3f7cc2e810bca8b8617aefd3b5b410339";
 
 # Changing this will log out all existing sessions.
 $wgAuthenticationTokenVersion = "1";
 
 # Site upgrade key. Must be set to a string (default provided) to turn on the
 # web installer while LocalSettings.php is in place
-$wgUpgradeKey = "5ce19ff7c01d7f6c";
+$wgUpgradeKey = "286b3f06c5926c88";
 
 ## For attaching licensing metadata to pages, and displaying an
 ## appropriate copyright notice / icon. GNU Free Documentation
 ## License and Creative Commons licenses are supported so far.
 $wgRightsPage = ""; # Set to the title of a wiki page that describes your license/copyright
-$wgRightsUrl = "";
-$wgRightsText = "";
-$wgRightsIcon = "";
+$wgRightsUrl = "https://creativecommons.org/licenses/by-nc-sa/4.0/";
+$wgRightsText = "크리에이티브 커먼즈 저작자표시-비영리-동일조건변경허락";
+$wgRightsIcon = "$wgResourceBasePath/resources/assets/licenses/cc-by-nc-sa.png";
 
 # Path to the GNU diff3 utility. Used for conflict resolution.
 $wgDiff3 = "/usr/bin/diff3";
+
+# The following permissions were set based on your choice in the installer
+$wgGroupPermissions['*']['edit'] = false;
 
 ## Default skin: you can change the default skin. Use the internal symbolic
 ## names, ie 'vector', 'monobook':
@@ -130,6 +134,22 @@ $wgDefaultSkin = "vector";
 wfLoadSkin( 'MonoBook' );
 wfLoadSkin( 'Timeless' );
 wfLoadSkin( 'Vector' );
+
+
+# Enabled extensions. Most of the extensions are enabled by adding
+# wfLoadExtension( 'ExtensionName' );
+# to LocalSettings.php. Check specific extension documentation for more details.
+# The following extensions were automatically enabled:
+wfLoadExtension( 'CategoryTree' );
+wfLoadExtension( 'Cite' );
+wfLoadExtension( 'CodeEditor' );
+wfLoadExtension( 'ConfirmEdit' );
+wfLoadExtension( 'Gadgets' );
+wfLoadExtension( 'MultimediaViewer' );
+wfLoadExtension( 'PdfHandler' );
+wfLoadExtension( 'TextExtracts' );
+wfLoadExtension( 'VisualEditor' );
+wfLoadExtension( 'WikiEditor' );
 
 
 # End of automatically generated settings.
